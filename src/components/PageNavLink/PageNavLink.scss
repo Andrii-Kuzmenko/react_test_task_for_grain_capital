@@ -1,0 +1,14 @@
+@import '/src/styles/mixins.scss';
+@import '/src/styles/variables.scss';
+
+.nav-link {
+  color: $whiteColor;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  @include hover(transform, scale(1.05));
+
+  &__active {
+    border-bottom: 1px solid $whiteColor;
+  }
+}

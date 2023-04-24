@@ -1,0 +1,39 @@
+@import '/src/styles/mixins.scss';
+@import '/src/styles/variables.scss';
+
+
+.user {
+  &__detail-row {
+    margin-bottom: 10px;
+  }
+
+  &__label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  &__button {
+    background-color: $blueColor;
+    color: $whiteColor;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    @include hover (background-color, $hoverColor);
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $whiteColor;
+  }
+
+  &__details {
+    margin-left: 15px;
+  }
+}

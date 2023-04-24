@@ -1,0 +1,70 @@
+@import '/src/styles/mixins.scss';
+@import '/src/styles/variables.scss';
+
+.table {
+  margin-bottom: 20px;
+  border-collapse: collapse;
+
+
+  &__cell {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    }
+  
+  &__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color:#555555;
+    
+    @include hover(color, #363434);
+
+    &:focus {
+      color: $blackColor;
+    }
+
+    &--updated {
+      font-family: "Ysabeau";
+    }
+  }
+
+  &__head {
+    background-color: #f2f2f2;
+    color: #555;
+    font-weight: bold;
+  }
+
+  &__icon {
+    height: 14px;
+    width: 14px;
+    background-image: url(../../../public/cross.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__button {
+    background-color: $blueColor;
+    color: $whiteColor;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    @include hover (background-color, $hoverColor);
+  }
+}
+
+.searchForm {
+  &__error {
+    color: $redColor;
+    margin: 0 0 10px;
+  }
+}
+

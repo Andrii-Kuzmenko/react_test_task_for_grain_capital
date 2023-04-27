@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getUsers } from '../../api/users';
 import { User } from '../../types/User';
@@ -27,22 +26,16 @@ const usersSlise = createSlice({
       state.users.push(action.payload);
     },
     remove: (state, action: PayloadAction<number>) => {
-      return {
-        ...state,
-        users: state.users.filter((user) => user.id !== action.payload)
-      }
+        state.users = state.users.filter((user) => user.id !== action.payload)
     },
     update: (state, action: PayloadAction<User>) => {
-      return {
-        ...state,
-        users: state.users.map((user) => {
+        state.users = state.users.map((user) => {
           if (user.id !== action.payload.id) {
             return user;
           }
         
           return action.payload;
         })
-      }
     },
   },
   extraReducers: (builder) => {

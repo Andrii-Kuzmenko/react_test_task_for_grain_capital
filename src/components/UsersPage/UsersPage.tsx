@@ -1,13 +1,12 @@
 import { useMemo } from "react";
+import classNames from "classnames";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import * as usersActions from '../../features/users/usersSlice';
-import * as selectedUsersActions from '../../features/selectedUser/selectedUserSlice';
 import * as modalActions from '../../features/modal/modalSlice';
-import './UsersPage.scss';
 import { Link } from "react-router-dom";
 import { SearchForm } from "../SearchForm/SearchForm";
 import { NewUserForm } from "../NewUserForm/NewUserForm";
-import classNames from "classnames";
+import './UsersPage.scss';
 
 export const UsersPage = () => {
   const dispatch = useAppDispatch();
@@ -53,7 +52,6 @@ export const UsersPage = () => {
                     {'table__link--updated': user.isUpdated}
                   )}
                   to={`${user.id}`}
-                  onClick={() => dispatch(selectedUsersActions.setUser(user))}
                 >
                 {user.name}
                 </Link>

@@ -1,12 +1,12 @@
 import React, { useMemo } from "react";
 import { useState } from "react"
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import classNames from "classnames";
 import './NewUserForm.scss';
 import { User } from "../../types/User";
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit/dist/createAction";
 import * as selectedUsersActions from '../../features/selectedUser/selectedUserSlice';
 import * as modalActions from '../../features/modal/modalSlice';
+import { SingleInput } from "../SingleInput/SingleInput";
 
 
 type Props = {
@@ -180,318 +180,108 @@ export const NewUserForm = React.memo<Props>(({action, user}) => {
         <form className="modal__form form" onSubmit={handleSubmit} onReset={clearForm} >
           <div className="form__container">
             <div>
-              <div>
-                <label className="label" htmlFor="user-name">Name</label>
+              <SingleInput 
+                handleChange={handleChange}
+                name="name"
+                value={name}
+                isError={errors.name}
+              />
 
-                <div>
-                  <input 
-                    type="text"
-                    name="name"
-                    id="user-name"
-                    placeholder="Name"
-                    maxLength={30}
-                    value={name}
-                    onChange={handleChange}
-                  />
-                </div>
+              <SingleInput 
+                handleChange={handleChange} 
+                name="username"
+                value={username}
+                isError={errors.username}
+              />
 
-                {errors.name && (
-                  <p className="form__error">
-                    Name is required
-                  </p>
-                )}
-              </div>
+              <SingleInput 
+                handleChange={handleChange} 
+                name="email"
+                type="email"
+                value={email}
+                isError={errors.email}
+              />
 
-              <div>
-                <label className="label" htmlFor="use-username">Username</label>
+              <SingleInput 
+                handleChange={handleChange} 
+                name="phone"
+                value={phone}
+                isError={errors.phone}
+              />
 
-                <div>
-                  <input 
-                    type="text"
-                    name="username"
-                    id="user-username"
-                    maxLength={30}
-                    placeholder="Username"
-                    value={username}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                {errors.username && (
-                  <p className="form__error">
-                    Username is required
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <label className="label" htmlFor="user-email">Email</label>
-
-                <div>
-                  <input 
-                    type="email"
-                    name="email"
-                    id="user-email"
-                    maxLength={30}
-                    placeholder="username"
-                    value={email}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                {errors.username && (
-                  <p className="form__error">
-                    Email is required
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <label className="label" htmlFor="user-phone">Phone</label>
-
-                <div>
-                  <input 
-                    type="text"
-                    name="phone"
-                    id="user-phone"
-                    maxLength={30}
-                    placeholder="Phone"
-                    value={phone}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                {errors.username && (
-                  <p className="form__error">
-                    Phone is required
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <label className="label" htmlFor="user-website">Website</label>
-
-                <div>
-                  <input 
-                    type="text"
-                    name="website"
-                    id="user-website"
-                    maxLength={30}
-                    placeholder="Website"
-                    value={website}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                {errors.website && (
-                  <p className="form__error">
-                    Website is required
-                  </p>
-                )}
-              </div>
+              <SingleInput 
+                handleChange={handleChange} 
+                name="website"
+                value={website}
+                isError={errors.website}
+              />
             </div>
 
             <div>
-              <div>
-                <label className="label" htmlFor="user-street">Street</label>
+              <SingleInput 
+                handleChange={handleChange} 
+                name="street"
+                value={street}
+                isError={errors.street}
+              />
 
-                <div>
-                  <input 
-                    type="text"
-                    name="street"
-                    id="user-street"
-                    maxLength={30}
-                    placeholder="Street"
-                    value={street}
-                    onChange={handleChange}
-                  />
-                </div>
+              <SingleInput 
+                handleChange={handleChange} 
+                name="suite"
+                value={suite}
+                isError={errors.suite}
+              />
 
-                {errors.street && (
-                  <p className="form__error">
-                    Street is required
-                  </p>
-                )}
-              </div>
+              <SingleInput 
+                handleChange={handleChange} 
+                name="city"
+                value={city}
+                isError={errors.city}
+              />
 
-              <div>
-                <label className="label" htmlFor="user-suite">Suite</label>
+              <SingleInput 
+                handleChange={handleChange} 
+                name="zipcode"
+                value={zipcode}
+                isError={errors.zipcode}
+              />
 
-                <div>
-                  <input 
-                    type="text"
-                    name="suite"
-                    id="user-suite"
-                    maxLength={30}
-                    placeholder="Suite"
-                    value={suite}
-                    onChange={handleChange}
-                  />
-                </div>
+              <SingleInput 
+                handleChange={handleChange} 
+                name="geoLat"
+                value={geoLat}
+                isError={errors.geoLat}
+              />
 
-                {errors.suite && (
-                  <p className="form__error">
-                    Suite is required
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <label className="label" htmlFor="user-city">City</label>
-
-                <div>
-                  <input 
-                    type="text"
-                    name="city"
-                    id="user-city"
-                    maxLength={30}
-                    placeholder="City"
-                    value={city}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                {errors.city && (
-                  <p className="form__error">
-                    City is required
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <label className="label" htmlFor="user-zipcode">Zipcode</label>
-
-                <div>
-                  <input 
-                    type="text"
-                    name="zipcode"
-                    id="user-zipcode"
-                    maxLength={30}
-                    placeholder="Zipcode"
-                    value={zipcode}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                {errors.zipcode && (
-                  <p className="form__error">
-                    Zipcode is required
-                  </p>
-                )}
-              </div>
-
-
-              <div>
-                <label className="label" htmlFor="user-geoLat">Geo lat</label>
-
-                <div>
-                  <input 
-                    type="text"
-                    name="geoLat"
-                    id="user-geoLat"
-                    maxLength={30}
-                    placeholder="Geo lat"
-                    value={geoLat}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                {errors.geoLat && (
-                  <p className="form__error">
-                    Geo lat is required
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <label className="label" htmlFor="user-geoLng">Geo lng</label>
-
-                <div>
-                  <input 
-                    type="text"
-                    name="geoLng"
-                    id="user-geoLng"
-                    maxLength={30}
-                    placeholder="Geo lng"
-                    value={geoLng}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                {errors.geoLng && (
-                  <p className="form__error">
-                    Geo lng is required
-                  </p>
-                )}
-              </div>
+              <SingleInput 
+                handleChange={handleChange} 
+                name="geoLng"
+                value={geoLng}
+                isError={errors.geoLng}
+              />
             </div>
 
             <div>
-              <div>
-                <label className="label" htmlFor="user-companyName">Company name</label>
+              <SingleInput 
+                handleChange={handleChange} 
+                name="companyName"
+                value={companyName}
+                isError={errors.companyName}
+              />
 
-                <div>
-                  <input 
-                    type="text"
-                    name="companyName"
-                    id="user-companyName"
-                    maxLength={30}
-                    placeholder="Company name"
-                    value={companyName}
-                    onChange={handleChange}
-                  />
-                </div>
+              <SingleInput 
+                handleChange={handleChange} 
+                name="catchPhrase"
+                value={catchPhrase}
+                isError={errors.catchPhrase}
+              />
 
-                {errors.companyName && (
-                  <p className="form__error">
-                    Company name is required
-                  </p>
-                )}
-              </div>
-              
-              <div>
-                <label className="label" htmlFor="user-catchPhrase">Catch phrase</label>
-
-                <div>
-                  <input 
-                    type="text"
-                    name="catchPhrase"
-                    id="user-catchPhrase"
-                    maxLength={30}
-                    placeholder="Catch phrase"
-                    value={catchPhrase}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                {errors.catchPhrase && (
-                  <p className="form__error">
-                    Catch phrase is required
-                  </p>
-                )}
-              </div>
-        
-              <div>
-                <label className="label" htmlFor="user-companyBs">Company bs</label>
-
-                <div>
-                  <input 
-                    type="text"
-                    name="companyBs"
-                    id="user-companyBs"
-                    maxLength={30}
-                    placeholder="Company bs"
-                    value={companyBs}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                {errors.companyBs && (
-                  <p className="form__error">
-                    Company bs is required
-                  </p>
-                )}
-              </div>
+              <SingleInput 
+                handleChange={handleChange} 
+                name="companyBs"
+                value={companyBs}
+                isError={errors.companyBs}
+              />
             </div>
           </div>
 

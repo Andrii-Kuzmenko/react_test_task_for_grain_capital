@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
-import  App  from './App';
+import App from './App';
 import './index.scss';
 import { HomePage } from './components/HomePage';
 import {
@@ -20,13 +20,14 @@ root.render(
       <Router>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route index element={<HomePage />} />
-            <Route path="/home" element={<Navigate to="/" replace />} />
-            <Route path="*" element={<ErrorPage />} />
-            <Route path="/users">
+            <Route path="users">
               <Route index element={<UsersPage />} />
               <Route path=":userId" element={<UserPage />} />
             </Route>
+
+            <Route index element={<HomePage />} />
+            <Route path="home" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>
       </Router>,

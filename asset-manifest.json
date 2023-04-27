@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react_test_task_for_grain_capital/static/css/main.1beae6fb.css",
-    "main.js": "/react_test_task_for_grain_capital/static/js/main.ebeec78f.js",
+    "main.css": "/react_test_task_for_grain_capital/static/css/main.e94297f1.css",
+    "main.js": "/react_test_task_for_grain_capital/static/js/main.7e95db8a.js",
     "index.html": "/react_test_task_for_grain_capital/index.html",
     "static/media/magnifying-glass-solid.svg": "/react_test_task_for_grain_capital/static/media/magnifying-glass-solid.819dbf4f84c4cdd27213.svg",
     "static/media/cross.svg": "/react_test_task_for_grain_capital/static/media/cross.42ff5c7fd590336578f6.svg",
-    "main.1beae6fb.css.map": "/react_test_task_for_grain_capital/static/css/main.1beae6fb.css.map",
-    "main.ebeec78f.js.map": "/react_test_task_for_grain_capital/static/js/main.ebeec78f.js.map"
+    "main.e94297f1.css.map": "/react_test_task_for_grain_capital/static/css/main.e94297f1.css.map",
+    "main.7e95db8a.js.map": "/react_test_task_for_grain_capital/static/js/main.7e95db8a.js.map"
   },
   "entrypoints": [
-    "static/css/main.1beae6fb.css",
-    "static/js/main.ebeec78f.js"
+    "static/css/main.e94297f1.css",
+    "static/js/main.7e95db8a.js"
   ]
 }
